@@ -1,0 +1,43 @@
+body{
+	background-color: #F1F1F1;
+	color:white;
+	font-family: consolas;
+}
+
+#contenido, table{
+	margin: 0 auto;
+	width:15%;	
+	text-align:center;
+}
+
+header, footer{
+	color:black;
+}
+
+h1{
+	font-family: Lobster, consolas;
+}
+
+td.estilos-pantalla{
+	background-color:#525846;
+	margin:0px;
+	padding:0px;
+	width: 0px;
+	height: 35px;
+}
+
+td{
+	border-color: #033A8B;
+	border: solid;
+	border-width: 1px;
+	padding: 10px;
+	background-color: #033A8B;
+}
+
+td:hover{
+	background-color: #069DDD;
+}
+
+td:active{
+	background: orange;
+};

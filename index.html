@@ -14,24 +14,41 @@
 		    <section>
 		       <article>
 		           <table>
-		           		<!--<tr>	<td id="pantalla" colspan="5" class="estilos-pantalla" style="background:#525846;"></td>	</tr>
+		           		<tr>	
+		           			<td id="pantalla" colspan="5" class="estilos-pantalla" style="background:#525846;">
+		           				<p id="operando1"></p><p id="operacion"></p><p id="operando2"></p>
+		           			</td>
+		           		</tr>
 		           	
-		           		<tr>	<td onclick="f(7)">7</td>	<td onclick="f(8)">8</td>	<td onclick="f(9)">9</td>	<td>/</td>	<td onclick="clean()">CE</td>	</tr>
+		           		<tr>
+		           			<td onclick="elegirNumero(7)">7</td>
+		           			<td onclick="elegirNumero(8)">8</td>
+		           			<td onclick="elegirNumero(9)">9</td>
+		           			<td onclick="elegirSigno('/')">/</td>
+		           			<td onclick="limpiar()">CE</td>	
+		           		</tr>
 
-		           		<tr>	<td onclick="f(4)">4</td>	<td onclick="f(5)">5</td>	<td onclick="f(6)">6</td>	<td onclick="multiply()">*</td>	<td onclick="modulate(7)">%</td>	</tr>
+		           		<tr>	
+		           			<td onclick="elegirNumero(4)">4</td>	
+		           			<td onclick="elegirNumero(5)">5</td>	
+		           			<td onclick="elegirNumero(6)">6</td>	
+		           			<td onclick="elegirSigno('x')">x</td>	
+		           			<td onclick="elegirNumero('%')">%</td>	
+		           		</tr>
 
-		           		<tr>	<td onclick="f(1)">1</td>	<td onclick="f(2)">2</td>	<td onclick="f(3)">3</td>	<td onclick="subtract(7)">-</td>	<td rowspan="2" onclick="calculate()">=</td>	</tr>
+		           		<tr>	
+		           			<td onclick="elegirNumero(1)">1</td>	
+		           			<td onclick="elegirNumero(2)">2</td>	
+		           			<td onclick="elegirNumero(3)">3</td>	
+		           			<td onclick="elegirSigno('-')">-</td>	
+		           			<td rowspan="2" onclick="calcular()">=</td>
+		           		</tr>
 
-		           		<tr>	<td onclick="f(0)" colspan="2">0</td>	<td onclick="dot(0)">.</td>	<td onclick="add(0)">+</td>	</tr>-->
-		           		<tr>	<td id="pantalla" colspan="5" class="estilos-pantalla" style="background:#525846;"></td>	</tr>
-		           	
-		           		<tr>	<td onclick="f(7)">7</td>	<td onclick="f(8)">8</td>	<td onclick="f(9)">9</td>	<td>/</td>	<td onclick="clean()">CE</td>	</tr>
-
-		           		<tr>	<td onclick="f(4)">4</td>	<td onclick="f(5)">5</td>	<td onclick="f(6)">6</td>	<td onclick="f(*)">*</td>	<td onclick="f(%)">%</td>	</tr>
-
-		           		<tr>	<td onclick="f(1)">1</td>	<td onclick="f(2)">2</td>	<td onclick="f(3)">3</td>	<td onclick="f(-)">-</td>	<td rowspan="2" onclick="calculate()">=</td>	</tr>
-
-		           		<tr>	<td onclick="f(0)" colspan="2">0</td>	<td onclick="f(.)">.</td>	<td onclick="f('+')">+</td>	</tr>
+		           		<tr>	
+		           			<td onclick="elegirNumero(0)" colspan="2">0</td>	
+		           			<td onclick="elegirSigno('.')">.</td>	
+		           			<td onclick="elegirSigno('+')">+</td>	
+		           		</tr>
 		           </table>
 		       </article>
 		    </section>
@@ -40,73 +57,65 @@
 		    </footer>
 		</div>
 
-	    <script>
-	    	var siete, ocho, resul, num, add, num0, num1, num2;
-	    	/*function funcionSiete(){
-	    		siete = 7;
-	    	}
-	    	function funcionOcho(){
-	    		ocho = 8;
-	    	}
-	    	function Calculadora(){
-	    		resul = siete + ocho;
-	    	}*/
-	    	function f(x){
-	    		switch (x) {
-			    case 0:
-			        num0 = 0;
-			        break;
-			    case 1:
-			        num1 = 1;
-			        break;
-			    case 2:
-			        num2 = 2;
-			        break;
-			    case 3:
-			        num = 3;
-			        break;
-			    case 4:
-			        num = 4;
-			        break;
-			    case 5:
-			        num = 5;
-			        break;
-			    case 6:
-			        num = 6;
-			        break;
-			    case 7:
-			        num = 7;
-			        break;
-			    case 8:
-			        num = 8;
-			        break;
-			    case 9:
-			        num = 9;
-			        break;
-			    case "+" :
-			        num = "+";
-			        break;
-			    default: 
-			    	document.getElementById("pantalla").innerHTML = "Error";	
+		<script>
+			var num, n1, n2, signo;
+			var signoActual = " "; 
+			//g.innerHTML = n1 + " + " + n2;  	para mostrar resultado
+
+			//expresion general
+			var op1 = document.getElementById("operando1");
+			var opSigno = document.getElementById("operacion");
+			var op2 = document.getElementById("operando2");
+
+			//c es un caracter
+			function elegirSigno(signo){
+				opSigno.innerHTML = signo; 
+				signoActual = signo; 
+			}
+
+			function elegirNumero(num){
+				if(signoActual == " "){
+					n1 = num; 
+					op1.innerHTML = n1;
+				} else {
+					n2 = num;
+					op2.innerHTML = n2;
 				}
-				num1 = isNaN("fsa");
-				if(num1 ==){
-					document.getElementById("pantalla").innerHTML = "Hola";
+			}
+
+			function calcular(){
+				if (signoActual == '+') { 
+					op1.innerHTML = n1 + n2; 
+					n1 = n1 + n2; 
+					n2 = 0; 
+					op2.innerHTML = " ";
 				}
-	    	}
+				if (signoActual == '-') { 
+					op1.innerHTML = n1 - n2; 
+					n1 = n1 - n2; 
+					n2 = 0; 
+					op2.innerHTML = " "; 
+				}
+				if (signoActual == 'x') { 
+					op1.innerHTML = n1 * n2; 
+					n1 = n1 * n2; 
+					n2 = 0; 
+					op2.innerHTML = " "; 
+				} 
+				if (signoActual == '/') { 
+					op1.innerHTML = n1 / n2; 
+					n1 = n1 / n2; 
+					n2 = 0; 
+					op2.innerHTML = " "; 
+				} 
+			}
 
-	    	function add(x, y){
-	    		resul = x + y;
-	    		document.getElementById("pantalla").innerHTML = "fdsf";
-	    	}
-
-	    	function clean(){
-	    		document.getElementById("pantalla").innerHTML = "";
-	    	}
-
-	    	function msg(x, y){
-	    		document.getElementById("pantalla").innerHTML = x + y;	
-	    	}
-	    </script>
+			function limpiar(){
+				op1.innerHTML = "";
+				opSigno.innerHTML = "";
+				op2.innerHTML = "";
+				num = 0, n1 = 0, n2 = 0, signo = 0, signoActual = " ";
+			}
+		</script>
 	</body>
 </html>

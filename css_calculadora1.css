@@ -18,12 +18,21 @@ h1{
 	font-family: Lobster, consolas;
 }
 
+/*Estilos a parrafos contenidos en la pantalla*/
+td p{
+	/*desplegar parrafos en linea*/
+	display: inline-block;
+	/*para que el tamaño de los parrafos no afecte al tamaño de la pantalla*/
+	margin: 0px; 
+	height: 0px;
+}
+/*Estilos a la pantalla*/
 td.estilos-pantalla{
 	background-color:#525846;
 	margin:0px;
 	padding:0px;
 	width: 0px;
-	height: 35px;
+	height: 40px;
 }
 
 td{
